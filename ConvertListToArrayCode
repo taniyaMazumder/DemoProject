@@ -1,0 +1,16 @@
+// Convert from List to Array
+
+import java.util.Arrays;
+import java.util.List;
+
+public class ListToIntArray {
+    public static void main(String[] args) {
+        List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
+
+        int[] array = numbers.stream()
+                .mapToInt(Integer::intValue)
+                .toArray();
+
+        System.out.println(Arrays.toString(array));
+    }
+}
