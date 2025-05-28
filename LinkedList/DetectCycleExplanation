@@ -1,0 +1,39 @@
+
+Let say there are the below nodes available in cyclic list 
+
+
+1-->2-->3-->4-->5-->6-->7-->8 -->
+			|					|
+			---------------------
+			
+			
+from 4 till 8 cycle is present.
+
+Let's say the length of LL before starting the cycle point  1-->2-->3 , let's say K=3
+Let's say, First Find the length of the cycle and then move S ahead by length of the cycle times
+Here length is 5 so Move S from start till 5 times means in 6th node it will point.
+Then we need to think how much we have already gone inside the cycle  that means from 4 to 6 length is 3. i.e L-K
+
+Now total length of the cycle is L and we got L-K;
+then remaining length will be = L -(L-K) = K i.e 7-->8-->4
+
+Step -1 - Find the length of the cycle
+Step-2 - Move s ahead by the length of the cycle
+Step 3- Move s and f pointer one by one, it will meet at start
+
+======================================================================================================================
+Let's say the LL is below-
+1->2->3->15->4->13->6->7->8->9
+		  |					 |				
+		  ---------------------
+		  
+Lets' say slow point to 15 and fast will point to 2*3=6th index i.e 6.
+If from head to starting point of the slow pointer i.e from 1->15 distance is 3	- L1
+from head to starting point of the fast pointer i.e from 1->6 distance is 6-L1
+the distance between fast and slow pointer from 6->7->8->9->15 is d
+Now after 1 - move- fast will point from 6->8 and slow pointer 15->4 so now the distance between fast and slow pointer from 8->9->15->4 is d-1
+If we keep on moving the distance between fast and slow pointer will be d,d-1,d-2,d-3.....till 0 that place they will collide at 7.
+Now overall distance fast will cover is 2d and the distance from 15 to collision point i.e 7 is d
+The length of the loop is L1+d then the distance from 7->8->9->15 is L1.
+Now we can say the distance initially from head to first collision i.e 1->2->3->15 is L1 that means this distance and this distance
+from 7->8->9->15 is L1 that is same . If fast points to 7 and slow again starts from head i.e 1 then they will collide at 15 that is starting point.
